@@ -12,59 +12,162 @@
 
         <body>
             <div class="main-header">
-            
-                <!-- The Main header will be placed between here-->
                 
+                <!-- The Main header will be placed between here-->
+                    
+                <h1>The Psychic Game</h1>
 
                 <!-- Main header END-->
 
                  <!-- Question Header-->
-
+                    <p>Guess what letter I'm thinking of....</p>
                 <!-- Question Header END-->
-
-            </div>
-               
+            </div>   
+        
+                <!-- STATS will begin here-->
             <div class="Statistics">
-                <div class="Player stats" id="Wins">
-
+                <div class="Player stats">
+                    <p id="Wins">Wins:</p>
                 </div>
 
-                <div class="Player stats" id="Losses">
-
+                <div class="Player stats">
+                    <p id="Losses">Losses:</p>
                 </div>
 
-                <div class="Player stats" id="Guesses Left">
-
+                <div class="Player stats">
+                    <p id="Guess">Guesses Left: 8</p>
                 </div>
 
                 <div class="Player stats" id="Guesses">
-
+                    <p>Your Guesses So Far: <span id="user-text"></span></p>
                 </div>
 
-            </div>
-
-                <!-- STATS will begin here-->
-                
+            </div>  
                 <!-- Stats END-->
-              
-
+    
             
             <script>
+            // VARIABLES
+            // =========================================================================
+            // We start the game with 0 Wins.
+            var wins = 0 ;
+            // We start the game with 0 Losses.
+            var losses = 0; 
+
+            var userText = "";
+
+            var compText = "";
+
+            var guessesLeft = 8;
+      
+            // FUNCTIONS
+            // ==============================================================================
+            // Function for computer to generate random letter
+            // function input() {
+
+            // var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", 
+            // "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+            // var letter = letters[Math.floor(Math.random() * letters.length)];
+            // return letter;
+            // return input();
+            // }
+            // console.log(compText); 
+    
+            // function renderQuestion() {
+            // // If there are still more questions, render the next one.
+            // if (questionIndex <= (questions.length - 1)) {
+            //     document.querySelector("#question").innerHTML = questions[questionIndex].q;
+            // }
+            // // If there aren't, render the end game screen.
+            // else {
+            //     document.querySelector("#question").innerHTML = "Game Over!";
+            //     document.querySelector("#score").innerHTML = "Final Score: " + score + " out of " + questions.length;
+            // }
+            // }
+
+            // Function that updates the score...
+            // <!-- Wins
+            function updateWins() {
+            document.querySelector("#Wins").innerHTML = "Wins:" +wins;
+                }
+
+            // // //Losses
+            // function updateLosses() {
+            // document.querySelector("#Losses").innerHTML = "Losses:" +losses;
+            //     }
+
+            // // //Guesses
+            // function updateGuess() {
+            // document.querySelector("#Guess").innerHTML = "guessesLeft:" + 1;
+            //     }
+
+
+            // // MAIN PROCESS
+            // // ==============================================================================
+
+            // // Calling functions to start the game.
             
+                input();
+                updateWins();
+            // // updateGuess();
+            // // updateLosses();
 
-                // <!-- Coding for computer to generate random letter-->
+            // When the user presses a key, it will run the following function...
 
-                // <!-- Random letter END-->
+            // // Determine which key was pressed, and set it to the userText variable.
+                document.onkeyup = function(event) {
+                var userText = document.getElementById("user-text");
+                userText.textContent = event.key;
+                }
+                console.log(userText);
 
-                // <!-- Coding for computer to generate random letter-->
+                function input() {
+                var letters = ["a", "b", "c", "d", "e", " ", "g", "h", "i", "j", "k", "l", 
+                "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+                var letter = letters[Math.floor(Math.random() * letters.length)];
+                return letter;
+                return input();
+                }
+                console.log(compText); 
+        
+            // // If there are no more questions, stop the function.
+            if (userText === compText) {
+                alert("You Win");
+                updateWins()}
+                
+                else {
+                alert("Try Again");
+                updateGuess()
+                }
+                // return;
+            
+            // // Only run this code if "t" or "f" were pressed.
+            // if (userInput === "t" || userInput === "f") {
 
-                // <!-- Random letter END-->
+            //     // If they guess the correct answer, increase and update score, alert them they got it right.
+            //     if (userInput === questions[questionIndex].a) {
+            //     alert("Correct!");
+            //     score++;
+            //     updateScore();
+            //     }
+            //     // If wrong, alert them they are wrong.
+            //     else {
+            //     alert("Wrong!");
+            //     }
 
+                
+                // <!-- Text Comparison (UserText vs CompText)-->
+                              
+                // <!-- Text Comparison END-->
+                    // String everything together to have the computer randomly generate a 
+                    // random letter and compare to the User Text when the button up event occurs
+                
 
-                //  <!-- Coding to generate stats -->
-                //     <!-- Wins
-                //         Losses
-                //         Guessleft
+                     // End Decision Code
+                //  <!--Coding to generate stats-->
+                //     
+
+                //Guessleft
                 //         Your Guesses So Far
                 //         Page Refresh on win/loss-->
                 // <!-- Stats  END-->
