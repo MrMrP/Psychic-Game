@@ -77,18 +77,6 @@
         //     //     }
         //     //     console.log(compText); 
     
-        //     // function renderQuestion() {
-        //     // // If there are still more questions, render the next one.
-        //     // if (questionIndex <= (questions.length - 1)) {
-        //     //     document.querySelector("#question").innerHTML = questions[questionIndex].q;
-        //     // }
-        //     // // If there aren't, render the end game screen.
-        //     // else {
-        //     //     document.querySelector("#question").innerHTML = "Game Over!";
-        //     //     document.querySelector("#score").innerHTML = "Final Score: " + score + " out of " + questions.length;
-        //     // }
-        //     // }
-
         //     // Function that updates the score...
         //     // <!-- Wins
             function updateWins() {
@@ -131,8 +119,8 @@
                 guessesLeft--;
                 }
             
-            // if letterToBeGuessed is same as userGuess then record it as a win
-            // and then reset guessesLeft to 9, and empty the guessesSoFar array
+            // if compGuess is same as userGuess then record it as a win
+            // and then reset guessesLeft to 8, and empty the guessesSoFar array
             // also have the computer make a new random pick
             if (compGuess == userGuess) {
                 wins++;
@@ -144,7 +132,7 @@
             }
 
             // if guessesLeft gets to 0 then record it as a loss
-            // and then reset guessesLeft to 9, and empty the guessesSoFar array
+            // and then reset guessesLeft to 8, and empty the guessesSoFar array
             // also have the computer make a new random pick
             if (guessesLeft == 0) {
                 losses++;
